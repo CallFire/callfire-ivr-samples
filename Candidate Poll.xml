@@ -1,0 +1,81 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Poll">
+    <play type="tts" voice="female2">
+          Hello, I am calling to tell you about the work 
+          of our Senator, Homer Jay Simpson.
+          Homer has voted against higher taxes on doughnuts 
+          and he wants to make naptime cumpulsory. 
+          That is why we are asking you to join President Burns 
+          by supporting Homer Simpson at your precinct caucus on Smarch 13th.
+    </play>
+    <menu name="MenuID">
+        <play type="tts" voice="female2">
+              Press 1 if you support Homer Simpson.
+              Press 2 if you are Undecided.
+              Press 3 if you support Nedward Flanders.
+        </play>
+        <keypress name="Keypress1" pressed="1">
+            <stash varname="ID">Homer</stash>
+        </keypress>
+        <keypress name="Keypress2" pressed="2">
+            <stash varname="ID">Undecided</stash>
+  </keypress>
+        <keypress name="Keypress3" pressed="3">
+            <stash varname="ID">Ned</stash>
+        </keypress>
+        <keypress name="KeypressDefault1" pressed="default">
+            <play type="tts" voice="female2">
+                  That is an in valid entry.
+            </play>
+            <goto>MenuID</goto>
+        </keypress>
+    </menu>
+    <menu name="Caucus">
+        <play type="tts" voice="female2">
+              Will you caucus for Homer on Smarch 13th? 
+              Press 1 for yes. Press 2 for Maybe. Press 3 for No.
+        </play>
+        <keypress name="Keypress4" pressed="1">
+            <stash varname="CaucusForBD">Yes</stash>
+        </keypress>
+        <keypress name="Keypress5" pressed="2">
+            <stash varname="CaucusForBD">Maybe</stash>
+        </keypress>
+        <keypress name="Keypress6" pressed="3">
+            <stash varname="CaucusForBD">No</stash>
+            <hangup />
+        </keypress>
+        <keypress name="KeypressDefault2" pressed="default">
+            <play type="tts" voice="female2">
+                  That is an in valid entry.
+            </play>
+            <goto>Caucus</goto>
+        </keypress>
+    </menu>
+    <menu name="Captain">
+        <play type="tts" voice="female2">
+              Last question! Will you join Homer's campaign 
+              by organizing fellow Sprinfielders in your neighborhood precinct?
+              Press 1 for Yes. Press 2 for Maybe. Press 3 for No.
+        </play>
+        <keypress name="Keypress7" pressed="1">
+            <stash varname="PrecinctCaptain">Yes</stash>
+        </keypress>
+        <keypress name="Keypress8" pressed="2">
+            <stash varname="PrecinctCaptain">Maybe</stash>
+        </keypress>
+        <keypress name="Keypress9" pressed="3">
+            <stash varname="PrecinctCaptain">No</stash>
+        </keypress>
+        <keypress name="KeypressDefault3" pressed="default">
+            <play type="tts" voice="female2">
+                  That is an in valid entry.
+            </play>
+            <goto>Captain</goto>
+        </keypress>
+    </menu>
+</dialplan>
