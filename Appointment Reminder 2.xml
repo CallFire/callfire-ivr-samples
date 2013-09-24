@@ -1,0 +1,44 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="AppointmentCampaign2">
+  <amd>
+    <live>
+      <menu name="EventAttendance" timeout="1000">
+        <play type="tts" voice="male1">
+          This is the Office of the Mayor. We are having 
+          an open general town meeting tomorrow night.
+          Will you be able to attend?
+          Press 1 for yes, and 2 for no.
+          If you wish to be placed on our Do Not Call list, 
+          please press 8.
+        </play>
+        <keypress pressed="1">
+          <stash varname="Attend">Will</stash>
+        </keypress>
+        <keypress pressed="2">
+          <stash varname="NotAttend">2-Will Not</stash>
+        </keypress>
+        <keypress pressed="8">
+          <dnc>${call.phonenumber}</dnc>
+          <stash varname="WillAttend">8-DNC</stash>
+          <play type="tts" voice="male1">
+               Thank you. You have been placed on our 
+               Do Not Call list.
+          </play>
+          <hangup />
+        </keypress>
+      </menu>
+    </live>
+    <machine>
+      <play type="tts" voice="male1">
+        This is the Office of the Mayor. We are having an
+        open general town meeting tomorrow night.
+        Please call 800, 5 5 5 1 2 1 2 if you would like 
+        to attend. Thank you.    
+      </play>
+    </machine>
+  </amd> 
+</dialplan>
