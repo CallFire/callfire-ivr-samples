@@ -19,11 +19,11 @@
           <stash varname="Attend">Will</stash>
         </keypress>
         <keypress pressed="2">
-          <stash varname="NotAttend">2-Will Not</stash>
+          <stash varname="NotAttend">Will Not</stash>
         </keypress>
         <keypress pressed="8">
           <dnc>${call.phonenumber}</dnc>
-          <stash varname="WillAttend">8-DNC</stash>
+          <stash varname="WillAttend">DNC</stash>
           <play type="tts" voice="male1">
                Thank you. You have been placed on our 
                Do Not Call list.
