@@ -1,0 +1,48 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+		<play type="tts" voice="female2">Welcome to the Customer Satisfaction
+    Survey. Please state your name clearly, then press Pound.</play>
+		<record varname="name">		</record>
+		<menu name="recommendprogram" maxDigits="1" timeout="1000">
+			<play type="tts" voice="female2">On a scale of zero to nine, how likely is
+      it that you would recommend our program to a friend or colleague?
+      Zero means not at all, five means neutral, and nine means extremely
+      likely. Please press the appropriate number on your phone's keypad.</play>
+			<keypress pressed="default">
+				<stash  varname="recommendprogram">${call.lastinput}
+            </stash>
+			</keypress>
+		</menu>
+		<play type="tts" voice="female2">Why did you contact Customer Service today?
+    Record your answer after the beep, then press Pound to continue.</play>
+		<record varname="reason">		</record>
+		<menu name="answertime" maxDigits="1" timeout="1000">
+			<play type="tts" voice="female2">How satisfied are you with the time it
+      took customer service to answer your call? Please press One for
+      Satisfied, press Five for Undecided, and press Nine for Dissatisfied.</play>
+			<keypress pressed="1">
+				<stash  varname="answertime">1
+            </stash>
+			</keypress>
+			<keypress pressed="5">
+				<stash  varname="answertime">5
+            </stash>
+			</keypress>
+			<keypress pressed="9">
+				<stash  varname="answertime">9
+            </stash>
+			</keypress>
+			<keypress pressed="default">
+				<play type="tts" voice="female2">That is an in valid entry.</play>
+				<goto>answertime
+      </goto>
+			</keypress>
+		</menu>
+		<play type="tts" voice="female2">Thank you for participating in our
+                Customer Service Satisfaction Survey. 
+                Your answers help us to serve you better!</play>
+	</dialplan>
