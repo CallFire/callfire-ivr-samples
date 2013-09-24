@@ -16,14 +16,14 @@
           please press 8.
         </play>
         <keypress pressed="1">
-          <stash varname="Attend">Will</stash>
+          <stash varname="Attending">Will</stash>
         </keypress>
         <keypress pressed="2">
-          <stash varname="NotAttend">Will Not</stash>
+          <stash varname="Attending">Will Not</stash>
         </keypress>
         <keypress pressed="8">
           <dnc>${call.phonenumber}</dnc>
-          <stash varname="WillAttend">DNC</stash>
+          <stash varname="Attending">DNC</stash>
           <play type="tts" voice="male1">
                Thank you. You have been placed on our 
                Do Not Call list.
