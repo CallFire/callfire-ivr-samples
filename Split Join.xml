@@ -1,0 +1,26 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Bill Hughes-->
+<!--Revisions: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+	<menu name="Main" maxDigits="20" timeout="5000">
+		<play name="getNumber" type="tts" voice="female2">Please enter your phone number, followed by the pound sign.</play>
+		<keypress name="keypress_id" pressed="default">
+			<setvar  varname="phonenumber">${call.lastinput}</setvar>
+			<setvar name="setVar" varname="ExplodedInput1">"${phonenumber}".split("").join(" ");</setvar>
+			<play name="confirm" type="tts" voice="female2">You entered a phone number of.  ${ExplodedInput1}.</play>
+			<menu name="Menu_confirm" maxDigits="1" timeout="3500">
+				<play name="yesorno" type="tts" voice="female2">Is this correct?  Press 1 for yes.  Press any other key to enter a new number.</play>
+				<keypress name="keypress_yes" pressed="1">
+					<goto name="goto_play_callnow">NextPlay</goto>
+				</keypress>
+				<keypress name="keypress_no" pressed="default">
+					<goto name="goto_menu_id">getNumber</goto>
+				</keypress>
+			</menu>
+		</keypress>
+	</menu>
+	<play name="NextPlay" type="tts" voice="female2">This is the next play tag.</play>
+</dialplan>
