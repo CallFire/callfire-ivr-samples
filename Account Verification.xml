@@ -1,0 +1,12 @@
+<dialplan name="Root">
+     <menu maxDigits="6" timeout="3500">
+          <play type="tts" >Please enter your 5 digit account number, followed by the pound sign.
+		</play>
+          <keypress pressed="default">
+               <setvar varname="custID">${call.lastinput}</setvar>
+          </keypress>
+     </menu>
+     <get varname="myResult">http://www.mysite.com/acctInfo.php?acctID=${custID}&amp;phNumber=${call.callerid}</get>
+     <play type="tts" >Your account number returned the value ${myResult}.
+	</play>
+</dialplan>
