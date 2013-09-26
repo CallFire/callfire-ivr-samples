@@ -1,0 +1,9 @@
+<dialplan name="Root">
+   <if expr="${global.time.hour.military} &lt; 17 || ${global.time.hour.military} &gt; 21 || ${global.date.dayOfWeek} == 7 || ${global.date.dayOfWeek} == 1">
+        <play  type="tts">This is after hours</play>
+        <hangup />
+        <else >
+            <play type="tts">This is during hours</play>
+        </else>
+    </if>
+</dialplan>
