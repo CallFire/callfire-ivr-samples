@@ -1,0 +1,24 @@
+<dialplan name="Root">
+     <play name="play_getMessage" type="tts" voice="female1">
+    	Please record your message after the beep, and press pound when finished.
+	</play>
+     <record name="record_custMessage" varname="custMessage">     </record>
+     <menu name="Menu_virtAnsMachine" maxDigits="1" timeout="5000">
+          <play name="Play_virtAnsMachine" type="tts" voice="female1">
+			Press 1 to accept your message. Press 2 to listen to it. Press 3 to re-record it.
+		</play>
+          <keypress name="KP_Accept" pressed="1">
+               <goto>Play_Goodbye</goto>
+          </keypress>
+          <keypress name="KP_Listen" pressed="2">
+               <play name="Play_Message" type="url" cache="false">${custMessage}</play>
+               <goto>Menu_virtAnsMachine</goto>
+          </keypress>
+          <keypress name="KP_ReRecord" pressed="3">
+               <goto>play_getMessage</goto>
+          </keypress>
+     </menu>
+     <play name="Play_Goodbye" type="tts" voice="female1">
+		Thank you for using our voicemail service. Goodbye.
+	</play>
+</dialplan>
