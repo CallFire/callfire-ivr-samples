@@ -1,0 +1,18 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+	<menu maxDigits="1" timeout="3500">
+		<play type="tts">Press 1 for Sales.  Press 2 for support.</play>
+		<keypress pressed="default">
+			<transfer timeout="25">12132212289</transfer>
+		</keypress>
+		<keypress pressed="default">
+			<transfer timeout="25">12132212289</transfer>
+		</keypress>
+	</menu>
+	<play type="tts">Oops, it looks like there is no one there right now.  Please leave a message after the beep.</play>
+	<record varname="message"/>
+</dialplan>
