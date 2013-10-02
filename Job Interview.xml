@@ -1,0 +1,73 @@
+<!--(c) copyright 2010 CallFire.com-->
+<!--Author: Bill Hughes-->
+<!--Revisions: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="JobInterviewSampleOutbound1">
+    <play type="tts" voice="female2">
+          Hi. This is Lloyd and I am calling from Acme Placement Inc. 
+          Is this a good time to speak to you about  
+          an opening that you have applied for?
+    </play>
+    <menu name="AcmeMenu1" timeout="1000">
+        <play type="tts" voice="female2">
+              Press one for Yes, or press three for No.
+        </play>
+        <keypress pressed="1">
+            <stash varname="AcmeMenu1">1_Yes</stash>
+            <!-- Note: the above "stash" tag isn't really necessary here, -->
+            <!-- but the original customer requested it for ease -->
+            <!-- in sorting his calls in Excel. -->
+            <play type="tts" voice="female2">
+                  Thank you. Our call should last a minute
+                  and we have a few questions for you to help us 
+                  get to know you better. 
+                  Could you elaborate on your understanding of the job
+                  description, and how well your past experience matches 
+                  the job description.
+                  Please state your answer clearly, then press Pound.
+            </play>
+            <record />
+            <play type="tts" voice="female2">
+                  Could you share some core values that are important to you.
+                  Please state your answer clearly, then press Pound.
+            </play>
+            <record />
+            <play type="tts" voice="female2">
+                  Tell me about a time when you had to change your priorities 
+                  because of a change in circumstances or plans. 
+                  How did you handle it and what was the result?.
+                  Please state your answer clearly, then press Pound.
+            </play>
+            <record />
+            <play type="tts" voice="female2">
+                  This position may include stress, 
+                  pressure and change; given that, 
+                  how will you accomplish your work objectives? 
+                  Give some examples.
+                  Please state your answer clearly, then press Pound.
+            </play>
+            <record />
+            </keypress>
+        <keypress pressed="3">
+            <stash varname="AcmeMenu1">3_No</stash>
+            <!-- Note: the above "stash" tag isn't really necessary here, -->
+            <!-- but the original customer requested it for ease -->
+            <!-- in sorting his calls in Excel. -->
+            <play type="tts" voice="female2">
+                  Could you key in a time during office hours 
+                  when can call you back?
+                  Please use the touchpad on your phone and key in month month,
+                  day day for the date, and minute, minute, hour, hour, 
+                  in twenty-four hour format, for the time. 
+                  For example, March Third would be zero three zero one, 
+                  and 5 30 in the evening would be one seven three zero.
+            </play>
+        </keypress>
+        </menu>
+    <play type="tts" voice="female2">
+          Thank you for your time. We will get back to you 
+          letting you know the status of your application with us. 
+    </play>
+</dialplan>
