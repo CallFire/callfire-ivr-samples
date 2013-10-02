@@ -56,14 +56,10 @@
             <!-- but the original customer requested it for ease -->
             <!-- in sorting his calls in Excel. -->
             <play type="tts" voice="female2">
-                  Could you key in a time during office hours 
-                  when can call you back?
-                  Please use the touchpad on your phone and key in month month,
-                  day day for the date, and minute, minute, hour, hour, 
-                  in twenty-four hour format, for the time. 
-                  For example, March Third would be zero three zero one, 
-                  and 5 30 in the evening would be one seven three zero.
+                  Could you give us a good time to call you back?
+                  Please state your answer clearly, then press Pound.
             </play>
+            <record/>
         </keypress>
         </menu>
     <play type="tts" voice="female2">
