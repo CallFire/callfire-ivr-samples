@@ -1,0 +1,90 @@
+<!--(c) copyright 2010 CallFire.com -->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+	<play type="tts" voice="female2" name="play_Intro">Good evening.  This is an important survey. Please do not hang up.</play>
+	<menu maxDigits="1" timeout="3500" name="Menu_TL">
+		<play type="tts" voice="female2" name="play_TL">If the election for Springfield Commissioner were held today, who would you vote for? 
+Press 1 for Homer Simpson.  Press 2 for Nedward Flanders.  Press 3 for Seymour Skinner. Press 4 for Ralph Wiggum.  Press 5 for Undecided.</play>
+		<keypress pressed="1" name="keypress_Homer">
+			<stash varname="Candidate">Homer</stash>
+			<menu maxDigits="1" timeout="3500" name="Menu_Homer">
+				<play type="tts" voice="female2">How likely would you be to vote for Homer, if you knew he was aa apolitical doofus? Press 1 for less likely, press 2 for more likely, press 3 for no effect.</play>
+				<keypress pressed="1">
+					<stash varname="HomerLikely">less</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="2">
+					<stash varname="HomerLikely">more</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="3">
+					<stash varname="HomerLikely">no effect</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+			</menu>
+		</keypress>
+		<keypress pressed="2" name="keypress_Nedward">
+			<stash varname="Candidate">Nedward</stash>
+			<play type="tts" voice="female2" name="play_Nedward">Please remember you can vote early tomorrow, Saturday, and polls are open 7 A M to 7 P M on Election Day Tuesday, November first. Thank you.</play>
+			<goto name="goto_bye">play_Goodbye</goto>
+		</keypress>
+		<keypress pressed="3" name="keypress_Seymour">
+			<stash varname="Candidate">Seymour</stash>
+			<menu maxDigits="1" timeout="3500" name="Menu_Seymour">
+				<play type="tts" voice="female2" name="play_Seymour">How likely would you be to vote for Seymour, if you knew that he wore a lavendar suit and lived with his mother? Press 1 for less likely, press 2 for more likely, press 3 for no effect.</play>
+				<keypress pressed="1">
+					<stash varname="SeymourLikely">less</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="2">
+					<stash varname="SeymourLikely">more</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="3">
+					<stash varname="SeymourLikely">no effect</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+			</menu>
+		</keypress>
+		<keypress pressed="4" name="keypress_Ralph">
+			<stash varname="Candidate">Ralph</stash>
+			<menu maxDigits="1" timeout="3500" name="Menu_Ralph">
+				<play type="tts" voice="female2" name="play_Ralph">How likely would you be to vote for Ralph, if you knew that he was a child, and not a bright one at that? Press 1 for less likely, press 2 for more likely, press 3 for no effect.</play>
+				<keypress pressed="1">
+					<stash varname="RalphLikely">less</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="2">
+					<stash varname="RalphLikely">more</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="3">
+					<stash varname="RalphLikely">no effect</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+			</menu>
+		</keypress>
+		<keypress pressed="5" name="keypress_Undecided">
+			<stash varname="Candidate">Undecided</stash>
+			<menu maxDigits="1" timeout="3500" name="Menu_Undecided">
+				<play type="tts" voice="female2" name="play_Undecided">Undecided, eh? How likely would you be to vote for Nedward Flanders, if you knew that Neddy was a fiscal conservative and God-fearing, and we mean really God-fearing, Christian? Press 1 for less likely, press 2 for more likely, press 3 for no effect.</play>
+				<keypress pressed="1">
+					<stash varname="NedLikely">less</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="2">
+					<stash varname="NedLikely">more</stash>
+					<goto>play_Goodbye</goto>
+				</keypress>
+				<keypress pressed="3">
+					<stash varname="NedLikely" name="stash">no effect</stash>
+					<goto name="goto">play_Goodbye</goto>
+				</keypress>
+			</menu>
+		</keypress>
+	</menu>
+	<play type="tts" voice="female2" name="play_Goodbye">Thank you for your time. Remember: Springfield and San Dimas High School football rule! Good night.</play>
+</dialplan>
