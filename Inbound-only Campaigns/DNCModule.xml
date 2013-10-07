@@ -1,0 +1,67 @@
+<!--(c) copyright 2013 CallFire.com -->
+<!--Author: Bill Hughes-->
+<!--Revisions: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+     <catch  type="hangup" goto="getCallerID">
+          <setvar name="setVar_explCallerID" varname="explodedCallerID">'${call.callerid}'.split("").join(" ");</setvar>
+          <menu name="menu_addToDNC" maxDigits="1" timeout="3500">
+               <play name="playDNC" type="tts" voice="female2">Thank you for calling the Dealership Hotline. The phone number I have for you is ${explodedCallerID}. 
+			If you would like to add this number to our Do Not Call list, please press 1 now. 
+			If you would like to add another number to our Do Not Call list, please press 2 now. 
+			If you would like to leave us a message, press 3 now.</play>
+               <keypress name="kp_addCallerID" pressed="1">
+                    <stash name="stashCallerID" varname="callerID">${call.callerid}</stash>
+                    <dnc  >${call.callerid}
+                    </dnc>
+                    <goto name="goto_addAnother">createDNC_Counter</goto>
+               </keypress>
+               <keypress name="kp_addDifferent" pressed="2">
+                    <goto name="goto_addDifferent">createDNC_Counter</goto>
+               </keypress>
+               <keypress name="kp_leaveMessage" pressed="3">
+                    <play name="play_getRecording" type="tts" voice="female2">Please leave your message after the beep, and press pound when finished.</play>
+                    <record name="rec_custMessage" varname="custMessage" timeout="30000">                    </record>
+                    <hangup/>
+               </keypress>
+          </menu>
+          <setvar name="createDNC_Counter" varname="dnc_counter">0</setvar>
+          <setvar name="updateCounter" varname="dnc_counter">${dnc_counter} + 1</setvar>
+          <if name="if_addAnother" expr="${dnc_counter} &lt; 4">
+               <menu name="menu_addAnother1" maxDigits="1" timeout="3500">
+                    <play name="play_addAnother1" type="tts" voice="female2">Would you like to add another number to our do not call list? Press 1 for yes or 2 for no.</play>
+                    <keypress name="kp_addAnother1" pressed="1">
+                         <goto>menu_addAnother2</goto>
+                    </keypress>
+                    <keypress name="kp_doNotAdd" pressed="2">
+                         <play name="goodbye" type="tts" voice="female2">Thank you for calling our dealership Do Not Call Registry. Your numbers have been added to our list. Goodbye.</play>
+                         <hangup/>
+                    </keypress>
+               </menu>
+               <menu name="menu_addAnother2" maxDigits="11" timeout="5000">
+                    <play name="play_addAnother2" type="tts" voice="female2">Please enter the 10-digit phone number you wish to add to our do not call list. Press pound when finished.</play>
+                    <keypress name="kp_addAnother2" pressed="1000000000-9999999999">
+                         <setvar name="saveNewDNC" varname="newDNC">${call.lastinput}</setvar>
+                         <setvar name="explNewDNC" varname="explodedNewDNC">'${newDNC}'.split("").join(" ");</setvar>
+                    </keypress>
+                    <keypress name="kp_addAnotherInvalid" pressed="default">
+                         <play name="play_addAnotherInvalid" type="tts" voice="female2">That is an in valid entry.</play>
+                         <goto name="goto_Invalid">play_addAnother2</goto>
+                    </keypress>
+               </menu>
+               <menu name="menu_checkNewDNC" maxDigits="1" timeout="3500">
+                    <play name="play_checkNewDNC" type="tts" voice="female2">You entered ${explodedNewDNC}. If this is correct, please press 1. If incorrect, please press 2.</play>
+                    <keypress name="kp_addNewDNC" pressed="1">
+                         <stash name="stashAnotherDNC" varname="stashDNC${dnc_counter}">${newDNC}</stash>
+                         <dnc  >${newDNC}
+                         </dnc>
+                    </keypress>
+               </menu>
+               <goto name="goto_addAnother2">updateCounter</goto>
+          </if>
+          <goto name="goto_goodbye">goodbye</goto>
+          <stash name="getCallerID" varname="callerID">${call.callerid}</stash>
+     </catch>
+</dialplan>
