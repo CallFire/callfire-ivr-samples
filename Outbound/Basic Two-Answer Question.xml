@@ -1,0 +1,11 @@
+<dialplan name="Root">
+     <menu name="Menu_Q1" maxDigits="1" timeout="3500">
+          <play name="Play_Q1" type="tts" voice="male1">Can you answer this question? Press 1 for yes or 2 for no.</play>
+          <keypress name="Keypress_Q1R1" pressed="1">
+               <stash varname="Q1R">${call.lastinput}</stash>
+          </keypress>
+          <keypress name="Keypress_Q1R2" pressed="2">
+               <stash varname="Q1R">${call.lastinput}</stash>
+          </keypress>
+     </menu>
+</dialplan>
