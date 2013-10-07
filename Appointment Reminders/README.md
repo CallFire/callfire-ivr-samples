@@ -1,4 +1,4 @@
-Appointment Reminders
+<strong>Appointment Reminders</strong>
 
 
 Appointment1
