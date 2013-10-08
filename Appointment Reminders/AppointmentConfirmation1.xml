@@ -19,7 +19,6 @@
           If you do need to cancel, please be sure to call us at 
           2 1 3, 5 5 5 1 2 1 2 to reschedule. Thank you.
         </play>
-        <!-- Note: Instead of a callback number, there could be a transfer node here to immediately reschedule. -->
         <keypress pressed="1">
           <stash varname="ApptConfirm">Confirm</stash>
           <play type="tts" voice="female2">
