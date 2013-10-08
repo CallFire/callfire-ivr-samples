@@ -1,4 +1,4 @@
-Inbound-only Campaigns
+<strong>Inbound-only Campaigns</strong>
 
 Note: these IVRs would only be assigned to an inbound DID (phone number) that you purchase from CallFire. 
 
