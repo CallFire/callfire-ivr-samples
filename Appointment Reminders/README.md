@@ -1,7 +1,7 @@
 <strong>Appointment Reminders</strong>
 
 
-Appointment1</br>
+<a href="https://github.com/CallFire/callfire-ivr-samples/blob/develop/Appointment%20Reminders/Appointment1.xml">Appointment1</br>
 
 In this IVR, there are two defined messages: one for answering machines, and one for live answers. The only difference is that the live messages invites recipients to stay on the line and be automatically transferred to the office. This would be useful for those wishing to cancel or reschedule appointments.
 
