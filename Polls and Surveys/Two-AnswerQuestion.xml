@@ -1,1 +1,17 @@
-test
+<!--(c) copyright 2013 CallFire.com -->
+<!--Author: Bill Hughes-->
+<!--Revisions: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+     <menu name="Menu_Q1" maxDigits="1" timeout="3500">
+          <play name="Play_Q1" type="tts" voice="male1">Can you answer this question? Press 1 for yes or 2 for no.</play>
+          <keypress name="Keypress_Q1R1" pressed="1">
+               <stash varname="Q1R">${call.lastinput}</stash>
+          </keypress>
+          <keypress name="Keypress_Q1R2" pressed="2">
+               <stash varname="Q1R">${call.lastinput}</stash>
+          </keypress>
+     </menu>
+</dialplan>
