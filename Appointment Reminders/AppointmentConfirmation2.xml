@@ -1,0 +1,69 @@
+<dialplan name="Root">
+     <menu name="Main" maxDigits="1" timeout="3500">
+          <play name="play_Main" type="tts">This call is to confirm your appointment with the clinic at ${contact.x}. Please press 1 to confirm your appointment, press 2 to cancel this appointment and reschedule, or 3 to cancel the appointment and reschedule at a later time. </play>
+          <keypress name="confirm" pressed="1">
+               <stash varname="Appt">Confirm</stash>
+               <goto>confirm2</goto>
+          </keypress>
+          <keypress name="Transfer" pressed="2">
+               <stash varname="Appt">Reschedule</stash>
+               <play type="tts">Please hold while you are transferred to the clinic to reschedule this appointment</play>
+               <transfer>5551234567</transfer>
+          </keypress>
+          <keypress name="cancel" pressed="3">
+               <stash varname="Appt">Cancel</stash>
+               <play type="tts">Your appointment has been cancelled. Please call the clinic to reschedule.</play>
+               <hangup/>
+          </keypress>
+          <keypress pressed="timeout">
+               <hangup/>
+          </keypress>
+     </menu>
+     <menu name="confirm2" maxDigits="1" timeout="3500">
+          <play name="play_confirm2" type="tts">Thank you for confirming this appointment, you may hang up now, press 1 to repeat the appointment time or press 2 to have this appointment sent to you as a text message.</play>
+          <keypress name="repeat" pressed="1">
+               <play type="tts">Your appointment is confirmed for ${contact.x}.  Thank you.</play>
+               <hangup/>
+          </keypress>
+          <keypress name="sms" pressed="2">
+               <goto>SMS</goto>
+          </keypress>
+          <keypress pressed="timeout">
+               <hangup/>
+          </keypress>
+     </menu>
+     <menu name="SMS" maxDigits="1" timeout="3500">
+          <play type="tts">We can send the appointment to the number we just called, or to another number. To send the text to this number, press 1.  To enter a different number, press 2.</play>
+          <keypress pressed="1">
+               <sms to="${call.phonenumber}">Your clinic appointment is on ${contact.x}</sms>
+               <hangup/>
+          </keypress>
+          <keypress pressed="2">
+               <goto>newSMS</goto>
+          </keypress>
+          <keypress pressed="timeout">
+               <hangup/>
+          </keypress>
+     </menu>
+     <menu name="newSMS" maxDigits="11" timeout="3500">
+          <play type="tts" voice="female2">Enter the 10 digit number you want us to text, and press pound when finished.</play>
+          <keypress pressed="default">
+               <setvar varname="id">${call.lastinput}</setvar>
+               <setvar varname="ExplodedInput1">"${id}".split("").join(" ");</setvar>
+               <play type="tts" voice="female2">You entered.  ${ExplodedInput1}. </play>
+               <menu maxDigits="1" timeout="3500">
+                    <play type="tts" voice="female2"> Is this correct?  Press 1 for yes.  Press any other key to enter a new number.</play>
+                    <keypress pressed="1">
+                         <play type="tts">Cool beans. A text is being sent now.</play>
+                         <sms to="${id}">Your clinic appointment is on ${contact.x}</sms>
+                    </keypress>
+                    <keypress pressed="default">
+                         <goto>newSMS</goto>
+                    </keypress>
+                    <keypress pressed="timeout">
+                         <hangup/>
+                    </keypress>
+               </menu>
+          </keypress>
+     </menu>
+</dialplan>
