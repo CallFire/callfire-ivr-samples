@@ -17,4 +17,4 @@ This IVR is similar to Appointment1, except that it only intends to confirm or c
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/develop/Appointment%20Reminders/AppointmentConfirmation2.xml">AppointmentConfirmation2</br>
 
-This example ...
+This reminder has an option to send the appointment time and date to a recipient's cell phone number. The recipient can select the number that the IVR calls (indicated as ${call.phonenumber} in CallFire XML), or else choose to enter a different number. The IVR reads the number back to them and allows them to confirm or reenter it.
