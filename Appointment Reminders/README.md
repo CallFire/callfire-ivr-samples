@@ -7,6 +7,8 @@ In this IVR, there are two defined messages: one for answering machines, and one
 
 The message is personalized using a combination of CallFire system variables. ${contact.firstName} and ${contact.lastName} will read the appropriate contact information from your database of CallFire contacts. Also included are variables such as ${contact.x}, where x represents a column in the Excel file of contacts uploaded into this particular IVR campaign. We have used columns C, D, and E to specify, respectively, the date, time, and address of the appointment.
 
-Appointment2
+<a href="https://github.com/CallFire/callfire-ivr-samples/blob/develop/Appointment%20Reminders/Appointment2.xml">Appointment2</br>
+
+Blah
 
 AppointmentConfirmation
