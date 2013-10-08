@@ -39,3 +39,7 @@ Use this code to break up phone numbers or other long numbers. The text to speec
 TimeoutCounter
 
 This IVR incorporates a Setvar and an If tag to count the number of times a user executes the Timeout function. Each time this is triggered, the value of the Setvar increases by one. At a given threshold, the If tag will announce that the maximum number of attempts has been reached, and terminate the call. 
+
+TransferByDay
+
+This inbound IVR was requested by a client who needed the calls transferred based on the day of the week. If no one answers the call, and during the weekends, the call is directed to a voice mail module.
