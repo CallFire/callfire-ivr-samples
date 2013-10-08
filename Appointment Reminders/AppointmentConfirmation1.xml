@@ -11,7 +11,6 @@
       This is a call from Dr. Happy Physician's office 
       reminding you of your appointment with ${contact.d} 
       tomorrow at ${contact.e}.                     
-      <!-- Note: The above requires the following columns in the uploaded spreadsheet: D=Physician's Name; E=Appointment Time -->
       </play><menu name="MainMenu">
         <play type="tts" voice="female2">
           Please press one to confirm your appointment, 
