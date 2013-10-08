@@ -1,3 +1,8 @@
+<!--(c) copyright 2013CallFire.com-->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
 <dialplan name="Root">
      <menu name="Main" maxDigits="1" timeout="3500">
           <play name="play_Main" type="tts">This call is to confirm your appointment with the clinic at ${contact.x}. Please press 1 to confirm your appointment, press 2 to cancel this appointment and reschedule, or 3 to cancel the appointment and reschedule at a later time. </play>
