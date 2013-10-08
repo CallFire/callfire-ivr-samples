@@ -13,4 +13,4 @@ In this example, we have included the option for recipients to opt out of future
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/develop/Appointment%20Reminders/AppointmentConfirmation%201.xml">AppointmentConfirmation</br>
 
-Here
+This IVR is similar to Appointment1, except that it only intends to confirm or cancel appointments. Should recipients choose to cancel, they are instructed to call the office directly to reschedule (there is no automatic transfer). The business scenario here is to encourage confirmation of existing appointments, and to place the onus of rescheduling on the recipient. The answering machine message is similar to Appointment1.
