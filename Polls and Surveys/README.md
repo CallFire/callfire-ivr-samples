@@ -23,3 +23,7 @@ This IVR queries a recipient's preferences in regards to an upcoming marketing c
 PoliticalSurvey
 
 This survey was used to ask if voters would be voting for a new mayoral candidate, and if they supported the outgoing administration. The final question asks if the recipient will canvass for the candidate, and includes the option to transfer the call to the field office.
+
+Two-AnswerQuestion
+
+A simple poll that records a yes/no response.
