@@ -9,6 +9,6 @@ The message is personalized using a combination of CallFire system variables. ${
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/develop/Appointment%20Reminders/Appointment2.xml">Appointment2</br>
 
-Blah
+In this example, we have included the option for recipients to opt out of future communications. In the live answer message, the recipient is asked to indicate via keypress whether or not he is attending the meeting. There is also an option ot be added to the CallFire Do Not Call list. All responses are recorded, and if the DNC option is selected, the recipient will be immediately added to the DNC list. In the answering machine message, the meeting time and place is announced, and a phone number is provided for those to call in order to obtain additional information.
 
 AppointmentConfirmation
