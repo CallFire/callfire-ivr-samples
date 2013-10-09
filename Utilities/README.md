@@ -8,6 +8,10 @@ AfterHoursIfTag
 
 This code is used to direct called based on the time or the day of the week, or both.
 
+BlockAreaCode
+
+In this IVR, a setvar is used to capture the incoming caller ID. Then, a substring extracts the area code only, so that we ca filter calls based on area codes. This example shows that calls from the 323 area code will be rejected, while calls from any other number will be transferred to the 5551234567 number. 
+
 NestedVariables
 
 The point of nested variables is to allow you to define all your choices at the start of the IVR, then use nested variables to have the XML read them. It is a time-saver; the same result can be accomplished with individual variables.
