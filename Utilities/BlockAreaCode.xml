@@ -1,0 +1,9 @@
+<dialplan name="Root">
+	<setvar varname="areaCode">'${call.callerid}'.substring(2,5);</setvar>
+	<if expr="${areaCode} == 323">
+		<hangup/>
+		<else>
+			<play type="tts">cool beans!</play>
+		</else>
+	</if>
+</dialplan>
