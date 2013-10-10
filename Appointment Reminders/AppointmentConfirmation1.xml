@@ -1,4 +1,4 @@
-<!--(c) copyright 2010 CallFire.com-->
+<!--(c) copyright 2013 CallFire.com-->
 <!--Author: Jeff Spisak-->
 <!--For information support@callfire.com-->
 <!--This sample script is provided as is-->
@@ -11,7 +11,6 @@
       This is a call from Dr. Happy Physician's office 
       reminding you of your appointment with ${contact.d} 
       tomorrow at ${contact.e}.                     
-      <!-- Note: The above requires the following columns in the uploaded spreadsheet: D=Physician's Name; E=Appointment Time -->
       </play><menu name="MainMenu">
         <play type="tts" voice="female2">
           Please press one to confirm your appointment, 
@@ -19,7 +18,6 @@
           If you do need to cancel, please be sure to call us at 
           2 1 3, 5 5 5 1 2 1 2 to reschedule. Thank you.
         </play>
-        <!-- Note: Instead of a callback number, there could be a transfer node here to immediately reschedule. -->
         <keypress pressed="1">
           <stash varname="ApptConfirm">Confirm</stash>
           <play type="tts" voice="female2">

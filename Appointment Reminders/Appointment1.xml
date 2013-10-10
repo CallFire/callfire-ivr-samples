@@ -11,11 +11,6 @@
                 appointment scheduled for ${contact.c} at ${contact.d}. The appointment
                 is located at ${call.field.e}. If you need to cancel or reschedule this
                 appointment, please stay on the line for assistance.</play>
-            <!--NOTE: The above TTS statement requires the following -->
-            <!--data columns: -->
-            <!--C=Date such as March First -->
-            <!--(could also be Day of Week, like Monday); -->
-            <!--D=Time, as in 2 P M or 3 45 P M; E=Address Number; -->
             <transfer callerid="${call.callerid}">
                 2135551212 
             </transfer>

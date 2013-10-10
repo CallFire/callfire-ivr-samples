@@ -1,0 +1,14 @@
+<!--(c) copyright 2013 CallFire.com -->
+<!--Author: Jeff Spisak-->
+<!--For information support@callfire.com-->
+<!--This sample script is provided as is-->
+<!--with no warranties of applicability expressed or implied-->
+<dialplan name="Root">
+	<setvar varname="areaCode">'${call.callerid}'.substring(2,5);</setvar>
+	<if expr="${areaCode} == 323">
+		<hangup/>
+		<else>
+			<transfer>5551234567</transfer>
+		</else>
+	</if>
+</dialplan>
