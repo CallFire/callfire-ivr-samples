@@ -6,11 +6,11 @@ This IVR is used to capture a five-digit number, which it then sends to your com
 
 AfterHoursIfTag
 
-This code is used to direct called based on the time or the day of the week, or both.
+This code is used to direct calls based on the time or the day of the week, or both.
 
 BlockAreaCode
 
-In this IVR, a setvar is used to capture the incoming caller ID. Then, a substring extracts the area code only, so that we ca filter calls based on area codes. This example shows that calls from the 323 area code will be rejected, while calls from any other number will be transferred to the 5551234567 number. 
+In this IVR, a Setvar is used to capture the incoming caller ID. Then, a Substring extracts the area code only, so that we can filter calls based on area codes. This example shows that calls from the 323 area code will be rejected, while calls from any other number will be transferred to the 5551234567 number. 
 
 NestedVariables
 
@@ -38,7 +38,7 @@ Most commonly used as an inbound IVR, this asks callers to press one for sales a
 
 SplitJoin
 
-Use this code to break up phone numbers or other long numbers. The text to speech in the CallFire XML reads all numbers as integers, so it would interpret a standard US phone number (213.221.2231) as two trillion, one hundred thirty-two million, two hundred twelve, two hundred thirty-one. The split/join commands breaks up the numbers individually and reads them back one at a time. This is also useful for street numbers and ZIP codes.
+Use this code to break up phone numbers or other long numbers. The text to speech in the CallFire XML reads all numbers as integers, so it would interpret a standard US phone number (213.221.2289) as two trillion, one hundred thirty-two million, two hundred twelve, two hundred eighty-nine. The Split/Join commands break up the numbers individually and reas them back one at a time. This is also useful for street numbers and ZIP codes.
 
 TimeoutCounter
 
@@ -46,4 +46,4 @@ This IVR incorporates a Setvar and an If tag to count the number of times a user
 
 TransferByDay
 
-This inbound IVR was requested by a client who needed the calls transferred based on the day of the week. If no one answers the call, and during the weekends, the call is directed to a voice mail module.
+This inbound IVR was requested by a client who needed the calls transferred based on the day of the week. If no one answers the call, and during the weekends, the call is directed to a voicemail module.
