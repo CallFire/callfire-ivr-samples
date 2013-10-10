@@ -14,7 +14,7 @@ This survey captures responses in two different ways. There are questions that a
 
 JobInterviewSurvey
 
-This IVR was created for a customer who wanted to collect follow-up data from interviewees. It asks questions, and uses record tags to record the responses. The only drawback was that it requires you to download an listen to each response in order to extract any useful data.
+This IVR was created for a customer who wanted to collect follow-up data from interviewees. It asks questions, and uses record tags to record the responses. The only drawback is that it requires you to download and listen to each response in order to extract any useful data.
 
 MarketingSurvey
 
@@ -26,4 +26,4 @@ This survey was used to ask if voters would be voting for a new mayoral candidat
 
 Two-AnswerQuestion
 
-A simple poll that records a yes/no response.
+This simple poll records a yes/no response.
