@@ -21,15 +21,19 @@ The point of nested variables is to allow you to define all your choices at the 
 This requires a caller to enter a password before continuing. It could be placed at the start of an inbound IVR in order to restrict access.
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Utilities/ScreenCallerID.xml">ScreenCallerID</a>
+
 This rejects blocked, restricted, unknown, and anonymous calls. It instructs callers to call back with their caller ID unblocked.
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Utilities/SendSMS.xml">SendSMS</a>
+
 Similar to the SplitJoin, this asks callers to enter a phone number. It then confirms the number, and sends it a text message.
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Utilities/SimpleTransfer1.xml">SimpleTransfer1</a>
+
 This outbound IVR hangs up on answering machines. For live answers, it greets the recipient by name and then transfers them to the office.
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Utilities/SimpleTransfer2.xml">SimpleTransfer2</a>
+
 Most commonly used as an inbound IVR, this asks callers to press one for sales and two for support. The call is transferred, and transfers to voice mail if no one answers after five rings.
 
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Utilities/SplitJoin.xml">SplitJoin</a>
