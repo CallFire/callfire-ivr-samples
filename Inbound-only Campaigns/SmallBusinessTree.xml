@@ -7,7 +7,7 @@
 <dialplan name="Root">
      <setvar varname="Counter">0</setvar>
      <menu name="Menu_TL" maxDigits="3" timeout="5000">
-          <play name="play_TL" type="tts">Welcome to ABC Company. Please press 1 for sales, or 2 for support. If you know your party&apos;s extension, you may enter it at any time. To reach the company operator, press 0. To hear these options again, press 9.</play>
+          <play name="play_TL" type="tts">Welcome to ABC Company. Please press 1 for sales, or 2 for support. If you know your partys extension, you may enter it at any time. To reach the company operator, press 0. To hear these options again, press 9.</play>
           <keypress name="0" pressed="0">
                <play type="tts">Please hold for the company operator.</play>
                <transfer timeout="25" whisper-tts="This is an operator call.">2135551212</transfer>
@@ -17,21 +17,21 @@
           <keypress name="Sales" pressed="1">
                <play type="tts">Please wait. A sales agent will be with you momentarily.</play>
                <transfer timeout="25" whisper-tts="This is a Sales call.">2135551212</transfer>
-               <play type="tts">I&apos;m sorry, all of our sales agents are busy right now.</play>
+               <play type="tts">Sorry, all of our sales agents are busy right now.</play>
                <goto>play_getMessage</goto>
           </keypress>
           <keypress name="Extension" pressed="300-315">
                <play type="tts">Please wait while I try that extension.</play>
                <transfer timeout="25">2135551212x${call.lastinput}</transfer>
                <setvar varname="readExtension">'${call.lastinput}'.split("").join(" ")</setvar>
-               <play type="tts">I&apos;m sorry, the person at extension ${readExtension} is not available.</play>
+               <play type="tts">Sorry, the person at extension ${readExtension} is not available.</play>
                <goto>play_getMessage</goto>
           </keypress>
           <keypress name="replayMenu" pressed="9">
                <goto>Menu_TL</goto>
           </keypress>
           <keypress name="Invalid" pressed="default">
-               <play type="tts">I&apos;m sorry, that is an in valid entry.</play>
+               <play type="tts">Sorry, that is an in valid entry.</play>
                <goto>Menu_TL</goto>
           </keypress>
           <keypress name="Timeout" pressed="timeout">
