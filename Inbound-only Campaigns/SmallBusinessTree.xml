@@ -5,6 +5,7 @@
 <!--This sample script is provided as is-->
 <!--with no warranties of applicability expressed or implied-->
 <dialplan name="Root">
+     <setvar varname="Counter">0</setvar>
      <menu name="Menu_TL" maxDigits="3" timeout="5000">
           <play name="play_TL" type="tts">Welcome to ABC Company. Please press 1 for sales, or 2 for support. If you know your party&apos;s extension, you may enter it at any time. To reach the company operator, press 0. To hear these options again, press 9.</play>
           <keypress name="0" pressed="0">
@@ -34,7 +35,6 @@
                <goto>Menu_TL</goto>
           </keypress>
           <keypress name="Timeout" pressed="timeout">
-               <setvar varname="Counter">0</setvar>
                <setvar varname="Counter">${Counter}+1</setvar>
                <if expr="${Counter} &gt; 2">
                     <play type="tts">Goodbye</play>
