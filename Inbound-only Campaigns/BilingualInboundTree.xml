@@ -1,0 +1,40 @@
+<dialplan name="Root">
+	<menu maxDigits="1" timeout="3500" name="menuGreeting">
+		<play type="tts" voice="female1" name="playGreetingEng">Thank you for calling Diz Tix dot com, your family source for discount tickets.  For information in English, press 1.</play>
+		<play type="tts" voice="spanish1" name="playGreetingSpan">Gracias por llamar, para obtener información en español oprima el numero dós.</play>
+		<keypress pressed="1" name="kp_English">
+			<goto>menu_English</goto>
+		</keypress>
+		<keypress pressed="2" name="kp_Spanish">
+			<goto>menu_Spanish</goto>
+		</keypress>
+	</menu>
+	<!--Comment-->
+	<menu maxDigits="1" timeout="3500" name="menu_English">
+		<play type="tts" voice="female1">For current pricing, press 1. To make a reservation, press 2. For our office hours, press 3.</play>
+		<keypress pressed="1">
+			<play type="tts" voice="female1">We currently have tickets available at a rate of 65 dollars per person. This price applies to children or adults. Everyone three years and older will require a ticket.</play>
+		</keypress>
+		<keypress pressed="2">
+			<play type="tts" voice="female1">To make a new reservation, call 5 5 5 1 2 3 4  6 7.</play>
+		</keypress>
+		<keypress pressed="3">
+			<play type="tts" voice="female1">Our office hours for ticket pickup are Monday through Friday from 8 until 11 AM, Saturday 7 until 11 AM, and Sunday 7 until 10 AM.</play>
+		</keypress>
+	</menu>
+	<hangup/>
+	<!--Comment-->
+	<menu maxDigits="1" timeout="3500" name="menu_Spanish">
+		<play type="tts" voice="spanish1">Para información sobre nuestros precios, oprima el numero uno. Para hacer una reservasion, oprima el numero dós. Para horas de operación, oprima el numero tres.</play>
+		<keypress pressed="1">
+			<play type="tts" voice="spanish1">Al momento offrecemos boletos a $65 por dia por persona. Este precio es para ninos y adultos. Ninos de thres anos y adelante requiren boleto.</play>
+		</keypress>
+		<keypress pressed="2">
+			<play type="tts" voice="spanish1">Para hacer una reservasion, llama 5 5 5 1 2 3 4 5 6 7.</play>
+		</keypress>
+		<keypress pressed="3">
+			<play type="tts" voice="spanish1">Horas para recojer boletos es lunes-viernes de las ocho a las once de la manana, sabado-domingo de siete a las once de la manana.</play>
+		</keypress>
+	</menu>
+	<hangup/>
+</dialplan>
