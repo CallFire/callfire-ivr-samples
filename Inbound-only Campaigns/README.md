@@ -2,6 +2,10 @@
 
 Note: these IVRs would only be assigned to an inbound DID (phone number) that you purchase from CallFire. 
 
+<a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Inbound-only%20Campaigns/BilingualInboundTree.xml">BilingualInboundTree</a>
+
+In this IVR, callers can select to proceed in either English or Spanish. The two menus are identical.
+
 <a href="https://github.com/CallFire/callfire-ivr-samples/blob/master/Inbound-only%20Campaigns/DNCHandler.xml">DNC Handler</a>
 
 When the DID is pointed to this IVR and people call, their phone number is automatically added to your CallFire DNC list. 
