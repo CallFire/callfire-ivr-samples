@@ -11,7 +11,7 @@
 			<setvar name="setVar" varname="ExplodedInput1">"${phonenumber}".split("").join(" ");</setvar>
 			<play name="confirm" type="tts" voice="female2">You entered a phone number of.  ${ExplodedInput1}.</play>
 			<menu name="Menu_confirm" maxDigits="1" timeout="3500">
-				<play name="yesorno" type="tts" voice="female2">Is this correct?  Press 1 for yes.  Press any other key to enter a new number.</play>
+				<play name="yesorno" type="tts" voice="female2">Is this correct?  Press 1 for yes.  Press any other key to enter a new phone number.</play>
 				<keypress name="keypress_yes" pressed="1">
 					<goto name="goto_play_callnow">NextPlay</goto>
 				</keypress>
