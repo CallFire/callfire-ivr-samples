@@ -1,4 +1,11 @@
-OK so can we write something here?
+Purpose: Enables answering machine detection for outbound campaigns. Must contain Live and Machine tags.
+
+Attributes
+Name Name of tag
+Live (Required)
+Name Name of tag
+Machine (Required)
+Name Name of tag
 
 <dialplan name="Root">
 	<amd>
