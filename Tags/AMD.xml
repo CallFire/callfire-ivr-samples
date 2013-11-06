@@ -1,3 +1,30 @@
+<table class="callfire-xml-tags table table-striped">
+	<thead>
+		<tr>
+			<th>
+				Attribute</th>
+			<th>
+				Required</th>
+			<th>
+				Values</th>
+			<th>
+				Description</th>
+		</tr>
+</thead>
+<tbody>
+		<tr>
+			<td class="attribute-name">
+				name</td>
+			<td>
+				N</td>
+			<td class="attribute-value">
+				any text</td>
+			<td>
+				a unique name for the tag</td>
+		</tr>
+	</tbody>
+</table>
+
 <dialplan name="Root">
 	<amd>
 		<live>
