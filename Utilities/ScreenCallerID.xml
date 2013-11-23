@@ -11,4 +11,5 @@
 		</play>
 	<hangup/>	
      </if>
+     <transfer>5551234567</transfer>
 </dialplan>
