@@ -5,7 +5,7 @@
 <!--with no warranties of applicability expressed or implied-->
 <dialplan name="Root">
      <menu name="Main" maxDigits="1" timeout="3500">
-          <play name="play_Main" type="tts">This call is to confirm your appointment with the clinic at ${contact.x}. Please press 1 to confirm your appointment, press 2 to cancel this appointment and reschedule, or 3 to cancel the appointment and reschedule at a later time. </play>
+          <play name="play_Main" type="tts">This call is to confirm your appointment with the clinic at ${contact.X}. Please press 1 to confirm your appointment, press 2 to cancel this appointment and reschedule, or 3 to cancel the appointment and reschedule at a later time. </play>
           <keypress name="confirm" pressed="1">
                <stash varname="Appt">Confirm</stash>
                <goto>confirm2</goto>
@@ -27,7 +27,7 @@
      <menu name="confirm2" maxDigits="1" timeout="3500">
           <play name="play_confirm2" type="tts">Thank you for confirming this appointment, you may hang up now, press 1 to repeat the appointment time or press 2 to have this appointment sent to you as a text message.</play>
           <keypress name="repeat" pressed="1">
-               <play type="tts">Your appointment is confirmed for ${contact.x}.  Thank you.</play>
+               <play type="tts">Your appointment is confirmed for ${contact.X}.  Thank you.</play>
                <hangup/>
           </keypress>
           <keypress name="sms" pressed="2">
@@ -40,7 +40,7 @@
      <menu name="SMS" maxDigits="1" timeout="3500">
           <play type="tts">We can send the appointment to the number we just called, or to another number. To send the text to this number, press 1.  To enter a different number, press 2.</play>
           <keypress pressed="1">
-               <sms to="${call.phonenumber}">Your clinic appointment is on ${contact.x}</sms>
+               <sms to="${call.phonenumber}">Your clinic appointment is on ${contact.X}</sms>
                <hangup/>
           </keypress>
           <keypress pressed="2">
@@ -60,7 +60,7 @@
                     <play type="tts" voice="female2"> Is this correct?  Press 1 for yes.  Press any other key to enter a new number.</play>
                     <keypress pressed="1">
                          <play type="tts">Cool beans. A text is being sent now.</play>
-                         <sms to="${id}">Your clinic appointment is on ${contact.x}</sms>
+                         <sms to="${id}">Your clinic appointment is on ${contact.X}</sms>
                     </keypress>
                     <keypress pressed="default">
                          <goto>newSMS</goto>

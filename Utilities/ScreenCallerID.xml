@@ -9,5 +9,7 @@
           <play name="play_fixCallerid" type="tts" >
     		Please call back with your caller I D unblocked. Thank you.
 		</play>
+	<hangup/>	
      </if>
+     <transfer>5551234567</transfer>
 </dialplan>

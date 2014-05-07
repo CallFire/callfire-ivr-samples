@@ -49,7 +49,7 @@
      <record varname="custMessage">     </record>
      <menu name="Menu_virtAnsMachine" maxDigits="1" timeout="5000">
           <play type="tts">Press 1 to accept your message. Press 2 to listen to it. Press 3 to re-record it.
-		</play>
+                </play>
           <keypress pressed="1">
                <goto>goodbye</goto>
           </keypress>
@@ -62,5 +62,5 @@
           </keypress>
      </menu>
      <play name="goodbye" type="tts" voice="female1">Thank you for using our voicemail service. Goodbye.
-	</play>
+        </play>
 </dialplan>
