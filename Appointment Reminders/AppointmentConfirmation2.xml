@@ -60,7 +60,7 @@
                     <play type="tts" voice="female2"> Is this correct?  Press 1 for yes.  Press any other key to enter a new number.</play>
                     <keypress pressed="1">
                          <play type="tts">Cool beans. A text is being sent now.</play>
-                         <sms to="${id}">Your clinic appointment is on ${contact.x}</sms>
+                         <sms to="${id}">Your clinic appointment is on ${contact.X}</sms>
                     </keypress>
                     <keypress pressed="default">
                          <goto>newSMS</goto>
